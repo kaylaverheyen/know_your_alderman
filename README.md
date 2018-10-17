@@ -1,2 +1,2 @@
-# know_your_alderman
-get to know your Alderman
+# Know Your Alderman
+## Group Project for Northwestern Coding Bootcamp
