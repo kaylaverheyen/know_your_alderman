@@ -1,0 +1,1 @@
+alert("Javascript for news API's is linked!")

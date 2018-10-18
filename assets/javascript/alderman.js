@@ -1,0 +1,1 @@
+alert("Javascript for alderman database is linked!")
