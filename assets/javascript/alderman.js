@@ -1,40 +1,60 @@
-< !DOCTYPE html >
-    <html lang="en">
+// $(document).ready(function () {
 
-        <head>
-            <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-                        <title>Know Your Alderman - Search</title>
-                        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-                            crossorigin="anonymous">
-                            <link rel="stylesheet" href="./assets/css/initial-style.css">
-</head>
+//     // Alderman Search API - database of alderman
+//     $.ajax({
+//         url: "https://data.cityofchicago.org/resource/7ia9-ayc2.json",
+//         type: "GET",
+//         data: {
+//             "$limit": 5000,
+//             "$$app_token": "K7i1lV0vqt5nRSZfFySmhy84t"
+//         }
+//     }).done(function (data) {
+//         console.log(data);
+//     });
 
-                            <body>
-                                <nav>HEADER: Do you know your alderman?</nav>
-                                <div class="container">
-                                    <div class="row">
+// Ward Search API - allows you to search your address and outputs your alderman
+$.ajax({
+    url: "https://gisapps.cityofchicago.org/WardGeocode/wardoffice.json",
+    type: "POST",
+    data: {
+        "ForwardGeocodeServiceInput3": {
+            "systemId": "WARD_LOOKUP",
+            "offsetFt": "20",
+            "fullAddress": "2613 W Hirsch",
+            "getGeos": { "geographyName": "WARD" }
+        }
+    }
+}).then(function (response) {
+    // console.log(response);
 
-                                        <label>Address Here</label>
-                                        <input type="text" id="address">
-                                            <div class="row">
+    var results = response.data;
 
-                                                <button id="search-btn">Search</button>
+})
+// Initialize Firebase
+// var config = {
+//     apiKey: "AIzaSyAXMuxXSkw-meUFq02228784tcd0dxo0DQ",
+//     authDomain: "chi-aldrmn.firebaseapp.com",
+//     databaseURL: "https://chi-aldrmn.firebaseio.com",
+//     projectId: "chi-aldrmn",
+//     storageBucket: "chi-aldrmn.appspot.com",
+//     messagingSenderId: "177285712818"
+// };
+// firebase.initializeApp(config);
 
-                                            </div>
 
-                                            <div class="col-md-12" id="alderman-results">
-                                                CONTAINER: ALDERMAN content goes here.
-            </div>
-        </div>
-                                    </div>
+// Get a reference to the database service
+// var database = firebase.database();
+// console.log(database);
 
 
-                                    <footer>FOOTER: Copyright 4 Women Enterpries</footer>
-                                    <script src='https://code.jquery.com/jquery-3.3.1.min.js' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
-                                        crossorigin='anonymous'></script>
-                                    <script src="./assets/javascript/alderman.js"></script>
-</body>
+    // function findMyWard() {
 
-</html>
+    //     // Connect the button click to a search
+    //     $("button").on("click", function () {
+    //         var addySearch = $(this).attr("data-address");
+
+    //         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + movie + "&api_key=fuR6CscpNgfqH8BemuXHuAzAucb6xoo5&limit=5";
+    //         // console.log(queryURL);
+
+    //     })
+    // }
