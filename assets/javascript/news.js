@@ -21,6 +21,7 @@ $(document).ready(function () {
         console.log($(this).text());
 
         $(".scrollspy").empty();
+        $("#list").empty();
 
         var searchInstance = "'" + $(this).text() + " alderman chicago'";
         //Check if the variable concatinates correctly:
