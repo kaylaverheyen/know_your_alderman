@@ -1,99 +1,51 @@
-$(document).ready(function () {
+var wardOffices = [
+    {
+        lat: 41.919350,
+        lon: -87.687980,
+        title: 'Title A1',
+        html: '<h3>Content A1</h3>',
+        icon: 'http://maps.google.com/mapfiles/markerA.png',
+        // animation: google.maps.Animation.DROP
+    }];
 
+$.ajax({
+    url: "https://data.cityofchicago.org/resource/7ia9-ayc2.json",
+    type: "GET",
+    data: {
+        "$limit": 5000,
+        "$$app_token": "K7i1lV0vqt5nRSZfFySmhy84t"
+    }
+}).done(function (data) {
+    console.log("data loaded");
 
-    //handles the button click event
-    $("#search-btn").on("click", function (event) {
-        event.preventDefault();
-        console.log("woot woot!")
-        var userInput = $("#user-input").val().trim();
-        console.log(userInput);
+});
 
-    })
+// Initialize and add the map
+function initMap() {
+    // The location of Chicago
+    var chicago = { lat: 41.881832, lng: -87.623177 };
+    // The map, centered at Chicago
+    var map = new google.maps.Map(
+        document.getElementById('gmap'), { zoom: 11, center: chicago });
+    // The marker, positioned at Uluru
+    var marker = new google.maps.Marker({ position: chicago, map: map });
+}
 
-    // MAP API TAKEN FROM HERE.COM https://developer.here.com/projects/PROD-a7af1fdc-2566-4de4-8401-7dde444d89de
-    // Instantiate a map and platform object:
-    var platform = new H.service.Platform({
-        'app_id': 'F7jbcRA63MfRnEIXkSi0',
-        'app_code': 'hNqemGmwhISHm7R_3XAZhg'
-    });
-    // Retrieve the target element for the map:
-    var targetElement = document.getElementById('mapContainer');
-
-    // Get default map types from the platform object:
-    var defaultLayers = platform.createDefaultLayers();
-
-    // Instantiate the map:
-    var map = new H.Map(
-        document.getElementById('mapContainer'),
-        defaultLayers.normal.map,
-        {
-            zoom: 10,
-            center: { lat: 41.881832, lng: -87.623177 }
-        });
-
-    // Create the parameters for the geocoding request:
-    var geocodingParams = {
-        searchText: '2312 W Berwyn, Chicago IL'
-    };
-
-    // Define a callback function to process the geocoding response:
-    var onResult = function (result) {
-        var locations = result.Response.View[0].Result,
-            position,
-            marker;
-        // Add a marker for each location found
-        for (i = 0; i < locations.length; i++) {
-            position = {
-                lat: locations[i].Location.DisplayPosition.Latitude,
-                lng: locations[i].Location.DisplayPosition.Longitude
-            };
-            marker = new H.map.Marker(position);
-            map.addObject(marker);
+//dropdown example
+new Maplace({
+    locations: wardOffices,
+    map_div: '#map-dropdown',
+    controls_title: 'Choose a location:',
+    listeners: {
+        click: function (map, event) {
+            alert('That was a click!');
         }
-    };
+    }
+}).Load();
 
-    // Get an instance of the geocoding service:
-    var geocoder = platform.getGeocodingService();
-
-    // Call the geocode method with the geocoding parameters,
-    // the callback and an error callback function (called if a
-    // communication error occurs):
-    geocoder.geocode(geocodingParams, onResult, function (e) {
-        alert(e);
-    });
-
-
-
-
-
-
-
-
-    //AJAX CALL
-
-
-    // function userInput() {
-    //     $("button").on("click", function () {
-    //         var input = $(this).attr("data-name");
-    //         // console.log(movie);
-
-    //         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + movie + "&api_key=fuR6CscpNgfqH8BemuXHuAzAucb6xoo5&limit=5";
-    //         // console.log(queryURL);
-
-    //         $.ajax({
-    //             url: queryURL,
-    //             method: "GET"
-    //         })
-    //             .then(function (response) {
-    //                 // console.log(response);
-
-    //                 var results = response.data;
-    //                 for (var i = 0; i < results.length; i++) {
-    //                     var movieDiv = $("<div>");
-
-    //                 }
-    //             })
-    //     })
-    // }
-
+var marker = new google.maps.Marker({
+    position: new google.maps.LatLng(entry.location_1.latitude,
+        entry.location_1.longitude),
+    map: map,
+    title: location.name
 });

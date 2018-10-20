@@ -1,8 +1,19 @@
 /* If your nav bar and footer appear to be blue, the css stylesheet is linked correctly. */
-body{
+
+body {
     text-align: center;
 }
+
 nav, footer {
     background-color: blue;
     color: white;
+}
+
+/* ALDERMAN MAP STYLING */
+
+#gmap {
+    height: 600px;
+    /* The height is 400 pixels */
+    width: 125%;
+    /* The width is the width of the web page */
 }

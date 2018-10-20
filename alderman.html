@@ -14,59 +14,51 @@
         crossorigin="anonymous">
     <!-- CSS ADDED -->
     <link rel="stylesheet" href="./assets/css/initial-style.css">
-    <!-- FIREBASE ADDED -->
-    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
 
-    <!-- Interactive Map  -->
-    <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
-    <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+    <!-- MAPLACE.JS -->
+
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/maplace-js/0.2.10/maplace.min.js> </script> <!-- JQUERY -->
+    <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+
 
 </head>
 
 <body>
     <nav>HEADER: Do you know your alderman?</nav>
-    <div class="container">
+    <div class="container" align="center">
         <div class="row">
 
             <!-- <label>Address Here</label>
-            <input type="text" id="address">
-            <div class="row">
-                <button id="search-btn">Search</button>
-            </div> -->
+                <input type="text" id="address">
+                <div class="row">
+                    <button id="search-btn">Search</button>
+                </div> -->
+            <div class="col-md-8">
 
-            <form id="movie-form">
-                <div>
-                    <label for="user-input">Enter Your Address here</label>
-                </div>
-                <input type="text" id="user-input"><br>
-
-                <!-- Button triggers new topic to be added -->
-                <input id="search-btn" type="submit" value="Search">
-
-                <!-- Rendered results get dumped here -->
-                <div id="results-appear-here">
-                </div>
-
-            </form>
-
-
+                <!-- MAP POPULATES HERE -->
+                <h3 align="center">My Google Maps Demo</h3>
+                <!--The div element for the map -->
+                <div id="gmap"></div>
+                <div id="gmap-list"></div>
+            </div>
         </div>
-    </div>
 
-    <!-- MAP POPULATES HERE -->
-    <div align="center" style="width: 640px; height: 480px" id="mapContainer"></div>
 
-    <!-- ALDERMAN INFO HERE -->
-    <div class="col-md-12" id="alderman-results">
-        CONTAINER: ALDERMAN content goes here.
+
+        <!-- ALDERMAN INFO HERE -->
+        <div class="col-md-12" id="alderman-results">
+            CONTAINER: ALDERMAN content goes here.
+        </div>
     </div>
 
 
 
     <footer>FOOTER: Copyright 4 Women Enterprises</footer>
-    <script src='https://code.jquery.com/jquery-3.3.1.min.js' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
-        crossorigin='anonymous'></script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3EHfZaWhjA4ffDabRt-4bIXRHxsMd-ow&callback=initMap">
+    </script>
     <script src="./assets/javascript/alderman.js"></script>
+
 </body>
 
 </html>
