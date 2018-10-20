@@ -1,4 +1,11 @@
 //alert("Javascript for analytics is linked!")
+
+$(document).ready(function () {
+    //Bootstrap jQuery function for dropdown functionality:
+    $('.dropdown-toggle').dropdown()
+
+});
+
 //firebase for database
 
 //Survey Questions
@@ -52,6 +59,7 @@ function displayQuestions() {
 //call function
 
 displayQuestions();
+
 //Initialize Firebase
 var config = {
     apiKey: "AIzaSyAZGHJvHqHkNuljfss-s0sSvoIxt9rIaLk",
@@ -63,22 +71,49 @@ var config = {
 };
 firebase.initializeApp(config);
 
-database.ref().on("value", function (snapshot) {
-    //todo: add code to display tweets
-    var username = snapshot.val().username;
-    var message = snapshot.val().message;
+var database = firebase.database();
 
-
-    console.log(snapshot);
-    $("#commentsAlderman").append(`<p> "${message}" - ${username}</p>`)
+database.ref().on("child_added", function (snapshot) {
+    var tweet = snapshot.val();
+    var displayTime = moment.unix(tweet.time);
+    // Display the tweet on the screen
+    // using jQuery
+    $("#tweets").prepend(`
+        <div class="card tweet">
+            <div class="card-body">
+                ${tweet.message}
+                <p>${displayTime.format("YYYY-MM-DD HH:m")}</p>
+            </div>
+        </div>
+    `);
 });
-//event listener for click
-$("button").on("click", function () {
-    //send to firebase
-    var username = $("input").val();
+
+$(".btn-info").on("click", function () {
     var message = $("textarea").val();
-    database.ref().set({
-        username,
-        message
-    })
+    $("textarea").val("");
+
+    database.ref().push({
+        message: message,
+        time: firebase.database.ServerValue.TIMESTAMP
+    });
 });
+// database.ref().on("value", function (snapshot) {
+//     //todo: add code to display tweets
+//     var username = snapshot.val().username;
+//     var message = snapshot.val().message;
+
+
+//     console.log(snapshot);
+//     $("#commentsAlderman").append(`<p> "${message}" - ${username}</p>`)
+// });
+// //event listener for click
+// $("button").on("click", function () {
+//     //send to firebase
+//     var username = $("input").val();
+//     var message = $("textarea").val();
+//     database.ref().set({
+//         username,
+//         message
+//     })
+// });
+
