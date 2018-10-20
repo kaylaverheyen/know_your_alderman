@@ -24,13 +24,27 @@
     <div class="container">
         <div class="row">
 
-            <label>Address Here</label>
+            <!-- <label>Address Here</label>
             <input type="text" id="address">
             <div class="row">
-
                 <button id="search-btn">Search</button>
+            </div> -->
 
-            </div>
+            <form id="movie-form">
+                <div>
+                    <label for="user-input">Enter Your Address here</label>
+                </div>
+                <input type="text" id="user-input"><br>
+
+                <!-- Button triggers new topic to be added -->
+                <input id="search-btn" type="submit" value="Search">
+
+                <div id="results-appear-here">
+                </div>
+
+            </form>
+
+
 
             <div class="col-md-12" id="alderman-results">
                 CONTAINER: ALDERMAN content goes here.
