@@ -12,28 +12,34 @@ $(function () {
             lat: 41.907080,
             lon: -87.667810,
             title: 'Ward2',
-            html: '<h3>Ward 1</h3>',
+            html: '<h3>Ward 3</h3>',
             icon: 'http://maps.google.com/mapfiles/markerA.png',
             // animation: google.maps.Animation.DROP,
         }, {
             lat: 41.801880,
             lon: -87.652230,
             title: 'Ward3',
-            html: '<h3>Ward 1</h3>',
+            html: '<h3>Ward 3</h3>',
             icon: 'http://maps.google.com/mapfiles/markerA.png',
             // animation: google.maps.Animation.DROP,
-        }];
-
-    new Maplace({
-        show_markers: false,
-        locations: [{
-            lat: 41.881832,
-            lon: -87.623177,
-            zoom: 12
         }]
-    }).Load();
+    console.log(wardOffices);
+    console.log(wardOffices[0].lat)
+    // function that populates map using Google Map API using Maplace.JS
+    new
 
-    // dropdown example
+        //MAP & POSITION OF MAP
+        Maplace({
+            show_markers: true,
+            locations: [{
+                lat: 41.881832,
+                lon: -87.623177,
+                zoom: 12
+            }]
+        }).Load();
+
+
+    // dropdown of Ward Offices - NEED THIS
     new Maplace({
         locations: wardOffices,
         map_div: '#gmap-dropdown',
