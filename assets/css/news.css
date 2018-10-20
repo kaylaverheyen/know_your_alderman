@@ -15,13 +15,12 @@ footer {
 }
 
 img{
-height: 150px;
-width: auto;
+    height: 150px;
+    width: auto;
+    float: left;
+    margin-right: 10px;
 }
 
-.nav-button{
-    background-color: #FF4C4C;
-}
 /* Star in header part 1*/
 .nav-button::after{
     display: block;
@@ -41,9 +40,28 @@ width: auto;
 }
 
 .dropdown-toggle{
-
-    width: 250px;
     margin-top: 15px;
-    margin-bottom: 15px;
-    background-color: none;
+    padding: 25px;
+    box-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+
+.dropdown-item{
+    margin-right: 45px;
+}
+.article-div{
+    margin-bottom: 10px;
+    font-family: 'PT Serif Caption', serif;
+    display: block;
+}
+
+h2{
+    text-align: center;
+    font-family: 'PT Serif Caption', serif;
+    font-style: italic;
+    font-size: 35px;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+
+#btnGroupDrop1{
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }

@@ -57,6 +57,7 @@ $(document).ready(function () {
                 $("#list").append(listButton);
                 //Make a corresponding link:
                 var articleDiv = $("<div>");
+                articleDiv.addClass("article-div");
                 articleDiv.attr("id", "list-item-" + i);
                 var articleTitle = $("<h4>");
                 var articleLink = $("<a>");
@@ -64,7 +65,7 @@ $(document).ready(function () {
                 articleLink.attr("target", "_blank");
                 var articleImage = $("<img>");
                 var article = $("<p>");
-                var articleBreak = $("<p>");
+                var articleAuthor = $("<p>");
 
                 console.log(articleDiv.attr("id"));
                 //Append the articles to the screen:
@@ -73,8 +74,8 @@ $(document).ready(function () {
                 articleImage.attr("src", response.articles[i].urlToImage);
                 articleImage.attr("alt", response.articles[i].author);
                 article.text(response.articles[i].content);
-                articleBreak.text("...");
-                articleDiv.append(articleImage, articleLink, article, articleBreak);
+                articleAuthor.text("Author: " + response.articles[i].author);
+                articleDiv.append(articleLink, articleImage, article, articleAuthor);
 
                 $(".scrollspy").append(articleDiv);
             };
