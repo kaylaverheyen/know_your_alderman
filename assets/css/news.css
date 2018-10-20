@@ -6,10 +6,12 @@ nav {
 }
 
 footer {
-    height: 80px;
-    background-color: blue;
-    background-image: linear-gradient(white, #66AAFF, #66AAFF);
-    color: white;
+    background-image: url("../images/skyline-footer.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 200px;
+    background-position: center center;
+    color: black;
+    height: 200px;
 }
 
 img{
@@ -20,7 +22,7 @@ width: auto;
 .nav-button{
     background-color: #FF4C4C;
 }
-
+/* Star in header part 1*/
 .nav-button::after{
     display: block;
     content: '';
@@ -29,7 +31,7 @@ width: auto;
     background: #FF4C4C;
     transform: rotateZ(45deg);
 }
-
+/* Star in header part 2*/
 .nav-button{
     margin-top: 15px;
     display: block;
@@ -40,7 +42,7 @@ width: auto;
 
 .dropdown-toggle{
 
-    width: 100%;
+    width: 250px;
     margin-top: 15px;
     margin-bottom: 15px;
     background-color: none;
