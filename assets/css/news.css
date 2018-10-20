@@ -1,0 +1,67 @@
+nav {
+    height: 100px;
+    background-color: blue;
+    background-image: linear-gradient(#66AAFF, #66AAFF, white);
+    color: white;
+}
+
+footer {
+    background-image: url("../images/skyline-footer.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 200px;
+    background-position: center center;
+    color: black;
+    height: 200px;
+}
+
+img{
+    height: 150px;
+    width: auto;
+    float: left;
+    margin-right: 10px;
+}
+
+/* Star in header part 1*/
+.nav-button::after{
+    display: block;
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: #FF4C4C;
+    transform: rotateZ(45deg);
+}
+/* Star in header part 2*/
+.nav-button{
+    margin-top: 15px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: #FF4C4C;
+}
+
+.dropdown-toggle{
+    margin-top: 15px;
+    padding: 25px;
+    box-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+
+.dropdown-item{
+    margin-right: 45px;
+}
+.article-div{
+    margin-bottom: 10px;
+    font-family: 'PT Serif Caption', serif;
+    display: block;
+}
+
+h2{
+    text-align: center;
+    font-family: 'PT Serif Caption', serif;
+    font-style: italic;
+    font-size: 35px;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+
+#btnGroupDrop1{
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}

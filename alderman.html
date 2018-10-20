@@ -2,30 +2,64 @@
 <html lang="en">
 
 <head>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Alderman Searh Page -->
     <title>Know Your Alderman - Search</title>
+
+    <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+    <!-- CSS ADDED -->
     <link rel="stylesheet" href="./assets/css/initial-style.css">
+    <!-- FIREBASE ADDED -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
+
+    <!-- Interactive Map Libraries  -->
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+
 </head>
 
 <body>
     <nav>HEADER: Do you know your alderman?</nav>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+
+            <!-- <label>Address Here</label>
+            <input type="text" id="address">
+            <div class="row">
+                <button id="search-btn">Search</button>
+            </div> -->
+
+            <form id="movie-form">
+                <div>
+                    <label for="user-input">Enter Your Address here</label>
+                </div>
+                <input type="text" id="user-input"><br>
+
+                <!-- Button triggers new topic to be added -->
+                <input id="search-btn" type="submit" value="Search">
+
+                <!-- Rendered results get dumped here -->
+                <div id="results-appear-here">
+                </div>
+
+            </form>
+
+
+
+            <div class="col-md-12" id="alderman-results">
                 CONTAINER: ALDERMAN content goes here.
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <button>Button</button>
-            </div>
-        </div>
     </div>
-    <footer>FOOTER: Copyright 4 Women Enterprices</footer>
+
+
+    <footer>FOOTER: Copyright 4 Women Enterprizes</footer>
     <script src='https://code.jquery.com/jquery-3.3.1.min.js' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
         crossorigin='anonymous'></script>
     <script src="./assets/javascript/alderman.js"></script>
