@@ -1,4 +1,47 @@
+nav {
+    height: 100px;
+    background-color: blue;
+    background-image: linear-gradient(#66AAFF, #66AAFF, white);
+    color: white;
+}
+
+footer {
+    height: 80px;
+    background-color: blue;
+    background-image: linear-gradient(white, #66AAFF, #66AAFF);
+    color: white;
+}
+
 img{
 height: 150px;
 width: auto;
-};
+}
+
+.nav-button{
+    background-color: #FF4C4C;
+}
+
+.nav-button::after{
+    display: block;
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: #FF4C4C;
+    transform: rotateZ(45deg);
+}
+
+.nav-button{
+    margin-top: 15px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: #FF4C4C;
+}
+
+.dropdown-toggle{
+
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: none;
+}

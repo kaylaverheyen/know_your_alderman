@@ -19,12 +19,16 @@ $(document).ready(function () {
     $(".dropdown-menu").on("click", "a", function () {
         //Check if the click event works:
         console.log($(this).text());
+        //Use the animate.css library:
+        $("#list").addClass("animated fadeInRight");
+        $(".scrollspy").addClass("animated fadeInRight");
 
-        $(".scrollspy").empty();
+
         $("#list").empty();
+        $(".scrollspy").empty();
 
         var searchInstance = "'" + $(this).text() + " alderman chicago'";
-        //Check if the variable concatinates correctly:
+        //Check if the search variable concatinates correctly:
         console.log(searchInstance);
 
         var url = "https://newsapi.org/v2/everything?q=" + searchInstance + "&sortBy=popularity&domains=&apiKey=2b8621eccbc941369a697cfc1220e020";
@@ -56,7 +60,8 @@ $(document).ready(function () {
                 articleDiv.attr("id", "list-item-" + i);
                 var articleTitle = $("<h4>");
                 var articleLink = $("<a>");
-                articleLink.attr("href", response.articles[i].url)
+                articleLink.attr("href", response.articles[i].url);
+                articleLink.attr("target", "_blank");
                 var articleImage = $("<img>");
                 var article = $("<p>");
                 var articleBreak = $("<p>");
