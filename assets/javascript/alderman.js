@@ -7,7 +7,7 @@ $(document).ready(function () {
         event.preventDefault();
         console.log("woot woot!")
         var userInput = $("#user-input").val().trim();
-
+        console.log(userInput);
 
     })
 
