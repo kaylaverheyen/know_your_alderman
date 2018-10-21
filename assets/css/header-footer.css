@@ -1,0 +1,74 @@
+/* CSS file for the header and footer for each page */
+
+/* HEADER */
+#header {
+    height: 120px;
+    background-color: blue;
+    background-image: linear-gradient(#66AAFF, #66AAFF, white);
+}
+/* header title to the left */
+.navbar-brand {
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 33px;
+    font-weight: bolder;
+    font-style: oblique;
+    color: white;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+/* header links */
+.nav-link {
+    font-size: 20px;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+/* starts in top right of the header */
+.nav-button{
+    margin-top: 10px;
+    margin-left: 40px;
+    display: block;
+    width: 18px;
+    height: 18px;
+    background: #FF4C4C;
+}
+
+.nav-button::after{
+    display: block;
+    content: '';
+    width: 18px;
+    height: 18px;
+    background: #FF4C4C;
+    transform: rotateZ(45deg);
+}
+
+.col3 {
+    padding: 0;
+}
+
+/* FOOTER */
+.site {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+  
+.container {
+    flex: 1;
+}
+
+footer {
+    background-image: url("../images/skyline-footer.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 200px;
+    background-position: center center;
+    color: black;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+#copyright{
+    margin-top: 165px;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
