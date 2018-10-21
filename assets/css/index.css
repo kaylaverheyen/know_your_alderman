@@ -90,14 +90,20 @@ footer {
   color: lightblue;
 }
 
+.container {
+    justify-content: center;
+    float: none;
+    margin: 0 auto;
+}
+
 .button-stars {
     height: 50px;
     width: 50px;
     object-fit: contain;
 }
 
-#stars {
+/* #stars {
     justify-content: center;
     float: none;
     margin: 0 auto;
-}
+} */
