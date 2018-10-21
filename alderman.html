@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -15,54 +14,50 @@
         crossorigin="anonymous">
     <!-- CSS ADDED -->
     <link rel="stylesheet" href="./assets/css/initial-style.css">
-    <!-- FIREBASE ADDED -->
-    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
 
-    <!-- Interactive Map Libraries  -->
-    <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
-    <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
 
 </head>
 
 <body>
     <nav>HEADER: Do you know your alderman?</nav>
-    <div class="container">
+    <div class="container" align="center">
         <div class="row">
 
             <!-- <label>Address Here</label>
-            <input type="text" id="address">
-            <div class="row">
-                <button id="search-btn">Search</button>
-            </div> -->
+                    <input type="text" id="address">
+                    <div class="row">
+                        <button id="search-btn">Search</button>
+                    </div> -->
+            <div class="col-md-8">
 
-            <form id="movie-form">
-                <div>
-                    <label for="user-input">Enter Your Address here</label>
-                </div>
-                <input type="text" id="user-input"><br>
-
-                <!-- Button triggers new topic to be added -->
-                <input id="search-btn" type="submit" value="Search">
-
-                <!-- Rendered results get dumped here -->
-                <div id="results-appear-here">
-                </div>
-
-            </form>
-
-
-
-            <div class="col-md-12" id="alderman-results">
-                CONTAINER: ALDERMAN content goes here.
+                <!-- MAP POPULATES HERE -->
+                <h3 align="center">City of Chicago</h3>
+                <!--The div element for the map -->
+                <div id="map"></div>
+                <div id="map-list"></div>
             </div>
         </div>
-    </div>
 
 
-    <footer>FOOTER: Copyright 4 Women Enterprizes</footer>
-    <script src='https://code.jquery.com/jquery-3.3.1.min.js' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
-        crossorigin='anonymous'></script>
-    <script src="./assets/javascript/alderman.js"></script>
+
+
+
+
+        <footer>FOOTER: Copyright 4 Women Enterprises</footer>
+
+
+        <!-- JQUERY -->
+        <script src='https://code.jquery.com/jquery-3.3.1.min.js' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
+            crossorigin='anonymous'></script>
+        <!-- JS -->
+        <script src="./assets/javascript/alderman.js"> </script>
+        <!-- MARKER CLUSTERER LIBRARY -->
+        <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+
+
+        <!-- GOOGLE MAPS -->
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3EHfZaWhjA4ffDabRt-4bIXRHxsMd-ow&callback=initMap">
+        </script>
 </body>
 
 </html>
