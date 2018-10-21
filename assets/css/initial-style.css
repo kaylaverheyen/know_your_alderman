@@ -1,9 +1,0 @@
-/* If your nav bar and footer appear to be blue, the css stylesheet is linked correctly. */
-body{
-    text-align: center;
-}
-nav, footer {
-    background-color: blue;
-    color: white;
-}
-
