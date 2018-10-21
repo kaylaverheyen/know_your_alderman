@@ -5,22 +5,36 @@ $(document).ready(function () {
     $('.dropdown-toggle').dropdown()
 
 });
+//display the value (ie alderman name) selected to the right of the drop down button
 
+$(".dropdown-toggle").on("click", function () {
+    var pickAlderman = $(".dropdown-item").val();
+    $("#aldermanChoice").append("<span>" + pickAlderman);
+    console.log(pickAlderman);
+
+
+});
+
+// function getSelectedValue() {
+//     var selectedValue = document.getElementById("list").value;
+//     console.log(selectedValue);
+
+// getSelectedValue();
 //firebase for database
 
 //Survey Questions
 var questions = [
     {
-        text: "Do you feel your Alderman does a(n)",
-        options: ["poor job", "adequate job", "excellent job"],
+        text: "How would you rate your Alderman's overall job performance?",
+        options: ["Unsatisfactory", "Improvement Needed", "Meets Expectations", "Exceeds Expectations", "Exceptional"],
     },
     {
-        text: "How do you feel~environmentally friendly",
-        options: ["poor job", "adequate job", "excellent job"],
+        text: "My Alderman's projects to better my Ward are relevant and important.",
+        options: ["Unsatisfactory", "Improvement Needed", "Meets Expectations", "Exceeds Expectations", "Exceptional"],
     },
     {
-        text: "Do you feel your Alderman cares about your Ward",
-        options: ["yes", "no", "not sure"],
+        text: "My Alderman is environmentally conscious and working to improve our Ward.",
+        options: ["Unsatisfactory", "Improvement Needed", "Meets Expectations", "Exceeds Expectations", "Exceptional"],
 
     }
 ];
@@ -28,6 +42,8 @@ var questions = [
 var questionIndex = 0;
 var submitButton = document.getElementById("submit");
 var quizContainer = document.getElementById("questions");
+
+
 
 
 //to display questions via jquery
@@ -60,6 +76,11 @@ function displayQuestions() {
 
 displayQuestions();
 
+//add submit button
+//store options[value] to firebase database 
+//us the chart to call back on the value and display on the pie chart. 
+
+
 //Initialize Firebase
 var config = {
     apiKey: "AIzaSyAZGHJvHqHkNuljfss-s0sSvoIxt9rIaLk",
@@ -73,29 +94,48 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
+
+
 database.ref().on("child_added", function (snapshot) {
     var tweet = snapshot.val();
-    var displayTime = moment.unix(tweet.time);
     // Display the tweet on the screen
     // using jQuery
     $("#tweets").prepend(`
         <div class="card tweet">
             <div class="card-body">
                 ${tweet.message}
-                <p>${displayTime.format("YYYY-MM-DD HH:m")}</p>
             </div>
         </div>
     `);
 });
 
+//write a message about your alderman here: 
 $(".btn-info").on("click", function () {
     var message = $("textarea").val();
     $("textarea").val("");
 
     database.ref().push({
-        message: message,
-        time: firebase.database.ServerValue.TIMESTAMP
+        message: message
     });
+});
+
+
+var chart = document.getElementById("pieChart");
+console.log(chart);
+var myPieChart = new Chart(chart, {
+    type: 'pie',
+    data: {
+        labels: ["Community Outreach", "likability", "environmentally friendly"],
+        datasets: [{
+            backgroundColor: ["#16a085", "#f1c40f", "#e67e22"],
+            data: [0, 1, 3]
+
+        }],
+
+
+
+    }
+
 });
 // database.ref().on("value", function (snapshot) {
 //     //todo: add code to display tweets
