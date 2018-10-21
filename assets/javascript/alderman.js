@@ -1,62 +1,78 @@
-$(function () {
+//INITIALIZE MAP
+function initMap() {
+    // SET MAP FOCUS - CHICAGO
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: { lat: 41.881832, lng: -87.623177 }
+    });
 
-    var wardOffices = [
-        {
-            lat: 41.919350,
-            lon: -87.687980,
-            title: 'Ward1',
-            html: '<h3>Ward 1</h3>',
-            icon: 'http://maps.google.com/mapfiles/markerA.png',
-            // animation: google.maps.Animation.DROP,
-        }, {
-            lat: 41.907080,
-            lon: -87.667810,
-            title: 'Ward2',
-            html: '<h3>Ward 3</h3>',
-            icon: 'http://maps.google.com/mapfiles/markerA.png',
-            // animation: google.maps.Animation.DROP,
-        }, {
-            lat: 41.801880,
-            lon: -87.652230,
-            title: 'Ward3',
-            html: '<h3>Ward 3</h3>',
-            icon: 'http://maps.google.com/mapfiles/markerA.png',
-            // animation: google.maps.Animation.DROP,
-        }]
-    console.log(wardOffices);
-    console.log(wardOffices[0].lat)
-    // function that populates map using Google Map API using Maplace.JS
-    new
+    // Create an array of alphabetical characters used to label the markers.
+    var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-        //MAP & POSITION OF MAP
-        Maplace({
-            show_markers: true,
-            locations: [{
-                lat: 41.881832,
-                lon: -87.623177,
-                zoom: 12
-            }]
-        }).Load();
+    // Add some markers to the map.
 
+    var markers = locations.map(function (location, i) {
+        return new google.maps.Marker({
+            position: location,
+            label: labels[i % labels.length]
+        });
+    });
 
-    // dropdown of Ward Offices - NEED THIS
-    new Maplace({
-        locations: wardOffices,
-        map_div: '#gmap-dropdown',
-        controls_title: 'Choose a location:',
-        listeners: {
-            click: function (map, event) {
-                alert('That was a click!');
-            }
-        }
-    }).Load();
+    // Add a marker clusterer to manage the markers.
+    var markerCluster = new MarkerClusterer(map, markers,
+        { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+}
+var locations = [
+    { lat: 41.919350, lng: -87.687981 },
+    { lat: 41.907080, lng: -87.667810 },
+    { lat: 41.801880, lng: -87.652230 },
+    { lat: 41.919350, lng: -87.687981 },
+    { lat: 41.907080, lng: -87.667810 },
+    { lat: 41.801880, lng: -87.652230 },
+    { lat: 41.919350, lng: -87.687981 },
+    { lat: 41.907080, lng: -87.667810 },
+    { lat: 41.919350, lng: -87.687981 },
+    { lat: 41.907080, lng: -87.667810 }, //10
+    { lat: 41.919350, lng: -87.687981 },
+    { lat: 41.907080, lng: -87.667810 },
+    { lat: 41.801880, lng: -87.652230 },
+    { lat: 41.919350, lng: -87.687981 },
+    { lat: 41.907080, lng: -87.667810 },
+    { lat: 41.801880, lng: -87.652230 },
+    { lat: 41.919350, lng: -87.687981 },
+    { lat: 41.907080, lng: -87.667810 },
+    { lat: 41.919350, lng: -87.687981 },
+    { lat: 41.907080, lng: -87.667810 }, //20
+    { lat: 41.919350, lng: -87.687981 },
+    { lat: 41.907080, lng: -87.667810 },
+    { lat: 41.801880, lng: -87.652230 },
+    { lat: 41.919350, lng: -87.687981 },
+    { lat: 41.907080, lng: -87.667810 },
+    { lat: 41.801880, lng: -87.652230 },
+    { lat: 41.919350, lng: -87.687981 },
+    { lat: 41.907080, lng: -87.667810 },
+    { lat: 41.919350, lng: -87.687981 },
+    { lat: 41.907080, lng: -87.667810 }, //30
+    { lat: 41.919350, lng: -87.687981 },
+    { lat: 41.907080, lng: -87.667810 },
+    { lat: 41.801880, lng: -87.652230 },
+    { lat: 41.919350, lng: -87.687981 },
+    { lat: 41.907080, lng: -87.667810 },
+    { lat: 41.801880, lng: -87.652230 },
+    { lat: 41.919350, lng: -87.687981 },
+    { lat: 41.907080, lng: -87.667810 },
+    { lat: 41.919350, lng: -87.687981 },
+    { lat: 41.907080, lng: -87.667810 }, //40
+    { lat: 41.919350, lng: -87.687981 },
+    { lat: 41.907080, lng: -87.667810 },
+    { lat: 41.801880, lng: -87.652230 },
+    { lat: 41.919350, lng: -87.687981 },
+    { lat: 41.907080, lng: -87.667810 },
+    { lat: 41.801880, lng: -87.652230 },
+    { lat: 41.919350, lng: -87.687981 },
+    { lat: 41.907080, lng: -87.667810 },
+    { lat: 41.919350, lng: -87.687981 },
+    { lat: 41.907080, lng: -87.667810 } //50
 
-
-    var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(entry.location_1.latitude,
-            entry.location_1.longitude),
-        map: map,
-        title: location.name
-    })
-});
+];
 

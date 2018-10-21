@@ -15,9 +15,7 @@
     <!-- CSS ADDED -->
     <link rel="stylesheet" href="./assets/css/initial-style.css">
 
-    <!-- GOOGLE MAPS -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3EHfZaWhjA4ffDabRt-4bIXRHxsMd-ow">
-    </script>
+
 </head>
 
 <body>
@@ -35,30 +33,31 @@
                 <!-- MAP POPULATES HERE -->
                 <h3 align="center">City of Chicago</h3>
                 <!--The div element for the map -->
-                <div id="gmap"></div>
-                <div id="gmap-dropdown"></div>
+                <div id="map"></div>
+                <div id="map-list"></div>
             </div>
         </div>
 
 
 
-        <!-- ALDERMAN INFO HERE -->
-        <div class="col-md-12" id="alderman-results">
-            CONTAINER: ALDERMAN content goes here.
-        </div>
-    </div>
 
 
 
-    <footer>FOOTER: Copyright 4 Women Enterprises</footer>
+        <footer>FOOTER: Copyright 4 Women Enterprises</footer>
 
-    <!-- JQUERY -->
-    <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
 
-    <!-- MAPLACE.JS -->
-    <script src=https://cdnjs.cloudflare.com/ajax/libs/maplace-js/0.2.10/maplace.min.js> </script> <!-- JS -->
-    <script 
-    src="./assets/javascript/alderman.js"></script>
+        <!-- JQUERY -->
+        <script src='https://code.jquery.com/jquery-3.3.1.min.js' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
+            crossorigin='anonymous'></script>
+        <!-- JS -->
+        <script src="./assets/javascript/alderman.js"> </script>
+        <!-- MARKER CLUSTERER LIBRARY -->
+        <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+
+
+        <!-- GOOGLE MAPS -->
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3EHfZaWhjA4ffDabRt-4bIXRHxsMd-ow&callback=initMap">
+        </script>
 </body>
 
 </html>
