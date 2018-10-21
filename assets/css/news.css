@@ -12,6 +12,13 @@ footer {
     background-position: center center;
     color: black;
     height: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+#copyright{
+    margin-top: 165px;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 
 img{
@@ -64,4 +71,14 @@ h2{
 
 #btnGroupDrop1{
     text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
 }
