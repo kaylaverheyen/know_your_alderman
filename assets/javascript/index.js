@@ -1,56 +1,25 @@
-// alert("Javascript for home page is linked!")
-
-// $(document).ready(function () {
-//     $('.carouselEducationalSlides').carousel({
-//         interval: 5000,
-//     });
-// });
-
+// What happens when page loads
 $(document).ready(function () {
     // Activate carousel
     $("#carouselEducationSlides").carousel();
     $(".card").hide();
 
-    // $(".btn").on("click", function () {
-    //     $(".card").show();
-
-    // });
-
+    // On click event that displays info card for each star button pressed
     $("#btn1").on("click", function () {
-        $("#card1").show();
+        $("#card1").toggle();
     });
 
     $("#btn2").on("click", function () {
-        $("#card2").show();
+        $("#card2").toggle();
     });
 
     $("#btn3").on("click", function () {
-        $("#card3").show();
+        $("#card3").toggle();
     });
+
     $("#btn4").on("click", function () {
-        $("#card4").show();
+        $("#card4").toggle();
     });
-
-
-
-    // Enable carousel control
-    // $(".left").click(function () {
-    //     $("#carouselEducationalSlides").carousel('prev');
-    // });
-    // $(".right").click(function () {
-    //     $("#carouselEducationalSlides").carousel('next');
-    // });
-
-    // // Enable carousel indicators
-    // $(".slide-one").click(function () {
-    //     $("#carouselEducationalSlides").carousel(0);
-    // });
-    // $(".slide-two").click(function () {
-    //     $("#carouselEducationalSlides").carousel(1);
-    // });
-    // $(".slide-three").click(function () {
-    //     $("#carouselEducationalSlides").carousel(2);
-    // });
 });
 
 
