@@ -8,19 +8,14 @@ $(document).ready(function () {
 //display the value (ie alderman name) selected to the right of the drop down button
 
 $(".dropdown-toggle").on("click", function () {
-    var pickAlderman = $(".dropdown-item").val();
+    var pickAlderman = $("#list").val();
     $("#aldermanChoice").append("<span>" + pickAlderman);
     console.log(pickAlderman);
-
-
 });
 
-// function getSelectedValue() {
-//     var selectedValue = document.getElementById("list").value;
-//     console.log(selectedValue);
 
-// getSelectedValue();
-//firebase for database
+
+
 
 //Survey Questions
 var questions = [
@@ -58,10 +53,13 @@ function displayQuestions() {
             for (value in currentQ.options) {
                 options.push(
                     `<label>
+                    <br>
                     <input type="radio" name="text${questionNum}" value="${value}">
                     ${value} :
                     ${currentQ.options[value]}
-                  </label>`
+                    
+                    
+                  </label> <br>`
                 );
             }
             output.push(
@@ -77,7 +75,14 @@ function displayQuestions() {
 displayQuestions();
 
 //add submit button
-//store options[value] to firebase database 
+$(".btn-primary").on("click", function () {
+    $(".questions").hide();
+    //store options[value] to firebase database 
+    //push array of values for the pie chart 
+    // var surveySubmit = $()
+
+});
+
 //us the chart to call back on the value and display on the pie chart. 
 
 
@@ -112,12 +117,18 @@ database.ref().on("child_added", function (snapshot) {
 //write a message about your alderman here: 
 $(".btn-info").on("click", function () {
     var message = $("textarea").val();
+    var username = $("input").val();
+    console.log(username);
+    $("input").val("");
     $("textarea").val("");
 
     database.ref().push({
-        message: message
+        message: message,
+        username: username
     });
 });
+
+
 
 
 var chart = document.getElementById("pieChart");
@@ -125,7 +136,7 @@ console.log(chart);
 var myPieChart = new Chart(chart, {
     type: 'pie',
     data: {
-        labels: ["Community Outreach", "likability", "environmentally friendly"],
+        labels: ["Job Proficiency", "Community Outreach", "Environmentally Friendly"],
         datasets: [{
             backgroundColor: ["#16a085", "#f1c40f", "#e67e22"],
             data: [0, 1, 3]
