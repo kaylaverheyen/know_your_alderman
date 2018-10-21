@@ -8,7 +8,12 @@
     <title>Know Your Alderman - Test</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/initial-style.css">
+    <link rel=“stylesheet” href=“https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css“> <link
+        rel="stylesheet" href="./assets/css/initial-style.css">
+    <script type="text/javascript" src="fusioncharts/js/fusioncharts.js"></script>
+    <style>
+
+    </style>
 </head>
 
 <body>
@@ -16,19 +21,103 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                CONTAINER: TEST content goes here.
+                <h2>Rate Your Alderman</h2>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <button>Button</button>
+
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Pick your Alderman
+                    </button>
+                    <br>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">1.Proco Joe Moreno</a>
+                        <a class="dropdown-item" href="#">2.Brian Hopkins</a>
+                        <a class="dropdown-item" href="#">3.Pat Dowell</a>
+                        <a class="dropdown-item" href="#">4.Sophia King</a>
+                        <a class="dropdown-item" href="#">5.Leslie Hairston</a>
+                        <a class="dropdown-item" href="#">6.Roderick Sawyer</a>
+                        <a class="dropdown-item" href="#">7.Gregory Mitchell</a>
+                        <a class="dropdown-item" href="#">8.Michelle A. Harris</a>
+                        <a class="dropdown-item" href="#">9.Anthony Beale</a>
+                        <a class="dropdown-item" href="#">10.Susie Sadlowski Garza</a>
+                        <a class="dropdown-item" href="#">11.Patrick Daley Thompson</a>
+                        <a class="dropdown-item" href="#">12.George Cardenas</a>
+                        <a class="dropdown-item" href="#">13.Marty Quinn</a>
+                        <a class="dropdown-item" href="#">14.Edward M. Burke</a>
+                        <a class="dropdown-item" href="#">15.Raymond Lopez</a>
+                        <a class="dropdown-item" href="#">16.Toni Foulkes</a>
+                        <a class="dropdown-item" href="#">17.David H. Moore</a>
+                        <a class="dropdown-item" href="#">18.Derrick Curtis</a>
+                        <a class="dropdown-item" href="#">19.Matthew O'Shea</a>
+                        <a class="dropdown-item" href="#">20.Willie Cochran</a>
+                        <a class="dropdown-item" href="#">21.Howard Brookins Jr.</a>
+                        <a class="dropdown-item" href="#">22.Ricardo Muñoz</a>
+                        <a class="dropdown-item" href="#">23.Silvana Tabares</a>
+                        <a class="dropdown-item" href="#">24.Michael Scott Jr.</a>
+                        <a class="dropdown-item" href="#">25.Daniel Solis</a>
+                        <a class="dropdown-item" href="#">26.Roberto Maldonado</a>
+                        <a class="dropdown-item" href="#">27.Walter Burnett Jr.</a>
+                        <a class="dropdown-item" href="#">28.Jason Ervin</a>
+                        <a class="dropdown-item" href="#">29.Chris Taliaferro</a>
+                        <a class="dropdown-item" href="#">30.Ariel Reboyras</a>
+                        <a class="dropdown-item" href="#">31.Milly Santiago</a>
+                        <a class="dropdown-item" href="#">32.Scott Waguespack</a>
+                        <a class="dropdown-item" href="#">33.Deb Mell</a>
+                        <a class="dropdown-item" href="#">34.Carrie Austin</a>
+                        <a class="dropdown-item" href="#">35.Carlos Ramirez-Rosa</a>
+                        <a class="dropdown-item" href="#">36.Gilbert Villegas</a>
+                        <a class="dropdown-item" href="#">37.Emma Mitts</a>
+                        <a class="dropdown-item" href="#">38.Nicholas Sposato</a>
+                        <a class="dropdown-item" href="#">39.Margaret Laurino</a>
+                        <a class="dropdown-item" href="#">40.Patrick J. O'Connor</a>
+                        <a class="dropdown-item" href="#">41.Anthony Napolitano</a>
+                        <a class="dropdown-item" href="#">42.Brandon Reilly</a>
+                        <a class="dropdown-item" href="#">43.Michele Smith</a>
+                        <a class="dropdown-item" href="#">44.Thomas M. Tunney</a>
+                        <a class="dropdown-item" href="#">45.John Arena</a>
+                        <a class="dropdown-item" href="#">46.James Cappleman</a>
+                        <a class="dropdown-item" href="#">47.Ameya Pawar</a>
+                        <a class="dropdown-item" href="#">48.Harry Osterman</a>
+                        <a class="dropdown-item" href="#">49.Joe Moore</a>
+                        <a class="dropdown-item" href="#">50.Debra Silverstein</a>
+                    </div>
+                </div>
+                <div id="questions"></div>
+                <br><br>
+                <hr>
+                <form id="form">
+                </form>
+
+                <br>
+                <div class="results"></div>
+                <br>
+                <input type="text" class="form-control" placeholder="@">
+                <textarea class="form-control" name="" id="message" cols="10" rows="10" placeholder="write your Alderman review here"></textarea>
+                <button class="btn btn-info">Comment</button>
+                <hr>
+                <div id="tweets" class="tweets-section"></div>
+
+
+                <div id="chart-container">FusionCharts XT will load here!</div>
             </div>
         </div>
     </div>
     <footer>FOOTER: Copyright 4 Women Enterprices</footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
     <script src='https://code.jquery.com/jquery-3.3.1.min.js' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
         crossorigin='anonymous'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
     <script src="./assets/javascript/test.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
 </body>
 
 </html>
