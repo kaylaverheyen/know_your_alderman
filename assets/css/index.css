@@ -28,6 +28,10 @@
   color: lightblue;
 }
 
+.carousel-caption {
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+
 .container {
     justify-content: center;
     float: none;
@@ -38,6 +42,12 @@
     height: 50px;
     width: 50px;
     object-fit: contain;
+}
+
+#education-div {
+    text-align: center;
+    float: none;
+    
 }
 
 /* #stars {

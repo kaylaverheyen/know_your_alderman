@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="./assets/css/header-footer.css">
     <!-- Stylesheet linked for the contaier -->
     <link rel="stylesheet" href="./assets/css/index.css">
+    <!-- Css Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <!-- Basic Font -->
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
@@ -67,12 +69,24 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img class="d-block w-100" src="assets/images/government-1.jpg" alt="First slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Vote!</h5>
+                                <p>Make a difference in your community</p>
+                            </div>
                         </div>
                         <div class="carousel-item">
                             <img class="d-block w-100" src="assets/images/cityhall.png" alt="Second slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>City Hall</h5>
+                                <p>Where aldermen meet</p>
+                            </div>
                         </div>
                         <div class="carousel-item">
                             <img class="d-block w-100" src="assets/images/citycouncil.png" alt="Third slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>City Council</h5>
+                                <p>Serves as Legislative Branch</p>
+                            </div>
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselEducationSlide" role="button" data-slide="prev">
@@ -87,42 +101,63 @@
 
             </div>
         </div>
-    </div>
-
-    <div class="row" id="stars">
-        <div class="col-md-3">
-            <button class="btn btn-default" id="btn1">
-                <img src="./assets/images/chicago-star.png" alt="Star" class="button-stars">
-            </button>
-        </div>
-
-        <div class="col-md-3">
-            <button class="btn btn-default" id="btn2">
-                <img src="./assets/images/chicago-star.png" alt="Star" class="button-stars">
-            </button>
-        </div>
-
-        <div class="col-md-3">
-            <button class="btn btn-default" id="btn3">
-                <img src="./assets/images/chicago-star.png" alt="Star" class="button-stars">
-            </button>
-        </div>
-
-        <div class="col-md-3">
-            <button class="btn btn-default" id="btn1">
-                <img src="./assets/images/chicago-star.png" alt="Star" class="button-stars">
-            </button>
-        </div>
-    </div>
 
 
+        <div class="row" id="stars">
+            <div class="col-md-3" id="education-div">
+                <button class="btn btn-default" id="btn1">
+                    <img src="./assets/images/chicago-star.png" alt="Star" class="button-stars">
+                </button>
+                <div class="card" id="card1">
+                    <div class="card-body">
+                        <p>What is an alderman?</p>
 
-    <!-- <div class="row">
-            <div class="col-md-12">
-                <button>Button</button>
+                        <p>Each ward in Chicago has an Alderman</p>
+                        <p>There are 50 wards</p>
+                        <p>50 wards = 50 aldermen in Chicago</p>
+                        <p>Terms: 4 years</p>
+                    </div>
+                </div>
             </div>
-        </div> -->
+
+            <div class="col-md-3" id="education-div">
+                <button class="btn btn-default" id="btn2">
+                    <img src="./assets/images/chicago-star.png" alt="Star" class="button-stars">
+                </button>
+                <div class="card" id="card2">
+                    <div class="card-body">
+                        <p>Aldermen make up City Council</p>
+                        <p>City Council serves as the local legislative branch for the city</p>
+                        <p>Has 19 standing committees</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3" id="education-div">
+                <button class="btn btn-default" id="btn3">
+                    <img src="./assets/images/chicago-star.png" alt="Star" class="button-stars">
+                </button>
+                <div class="card" id="card3">
+                    <div class="card-body">
+                        <p>Aldermen have “the power to regulate for the protection of the public health, safety,
+                            morals and welfare; to license; to tax; and to incur debt.“</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3" id="education-div">
+                <button class="btn btn-default" id="btn4">
+                    <img src="./assets/images/chicago-star.png" alt="Star" class="button-stars">
+                </button>
+                <div class="card" id="card4">
+                    <div class="card-body">
+                        <p>This is some text within a card body.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
     <footer>
         <p id="copyright">Copyright &copy 4 Women Enterprices 2018</p>
     </footer>
