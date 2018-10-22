@@ -1,5 +1,9 @@
 /* CSS file for the header and footer for each page */
 
+/* FONT*/
+body {
+    font-family: 'Lato', sans-serif;
+}
 /* HEADER */
 #header {
     height: 120px;
@@ -71,4 +75,20 @@ footer {
 #copyright{
     margin-top: 165px;
     text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+
+/* Responsive header resize */
+
+@media screen and (max-width: 991px) {
+    #header {
+    height: 300px;
+    }
+    
+}
+
+@media screen and (max-width: 767px) {
+        #header {
+        height: 375px;
+        }
+        
 }

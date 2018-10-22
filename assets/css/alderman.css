@@ -1,0 +1,14 @@
+/* ALDERMAN MAP STYLING */
+#map-list {
+text-align: center;
+font-size: 40px;
+padding-top: 250px;
+}
+
+#map {
+    height: 450px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+    border: 2px solid black;
+}

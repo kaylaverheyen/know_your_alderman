@@ -22,31 +22,31 @@
 </head>
 
 <body class="site">
-
+    <!-- Header -->
     <div id="header" class="row">
         <div class="col-md-1"></div>
         <div class="col-md-11">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-sm-11 col-md-3">
                     <div class="row">
-                        <div class="col-md-3 col3">
+                        <div class="col-sm-3 col-md-3 col3">
                             <div class="nav-button"></div>
                         </div>
-                        <div class="col-md-3 col3">
+                        <div class="col-sm-3 col-md-3 col3">
                             <div class="nav-button"></div>
                         </div>
-                        <div class="col-md-3 col3">
+                        <div class="col-sm-3 col-md-3 col3">
                             <div class="nav-button"></div>
                         </div>
-                        <div class="col-md-3 col3">
+                        <div class="col-sm-3 col-md-3 col3">
                             <div class="nav-button"></div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-9"></div>
+                <div class="col-sm-1 col-md-9"></div>
             </div>
             <nav class="navbar navbar-expand-lg row">
-                <a class="navbar-brand col-md-8" href="#">Know Your Alderman</a>
+                <a class="navbar-brand col-md-4" href="./index.html">Know Your Alderman</a>
                 <div class="navbar-nav ml-auto col-md-4">
                     <a class="nav-item nav-link active" href="./index.html">Home<span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link" href="./alderman.html">Find</a>
@@ -58,6 +58,7 @@
         </div>
     </div>
 
+    <!-- Dropdown menu -->
     <div class="container">
         <div class="row">
             <div class="col-md-3">
@@ -83,37 +84,69 @@
                 <div id="list" class="list-group">
                 </div>
             </div>
-            <div id="container-div" class="col-md-9">
-                <p>Look up current info on aldermen and related news in the city of Chicago!</p>
+
+            <!-- Article container -->
+            <div class="col-md-9">
+                <!-- Dynamic articles go here -->
+                <div data-spy="scroll" data-target="#list" data-offset="0" class="scrollspy"></div>
+
+                <!-- Initial display -->
+                <p id="container-title">Look up current information on aldermen and related news in the city of
+                    Chicago!</p>
                 <p>This project is powered by <a href="https://newsapi.org/" target="_blank">News API</a>.</p>
                 <div class="row">
-                    <div class="links col-md-4"><button type="button" class="btn btn-outline-secondary">Learn more
-                            about what
-                            does an alderman do!</button>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Educate</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Look up facts about Aldermen!</h6>
+                                <p class="card-text">
+                                    Learn more about what does an alderman do!</p>
+                                <a href="./index.html" class="card-link">Click here to know more.</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="links col-md-4"><button type="button" class="btn btn-outline-secondary">Lookup all 50
-                            aldermen in the city!</button>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Find</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Learn about your Alderman!</h6>
+                                <p class="card-text">
+                                    Get information on aldermen in the city!</p>
+                                <a href="./alderman.html" class="card-link">Click here to know more.</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="links col-md-4"><button type="button" class="btn btn-outline-secondary">Take a survey
-                            and
-                            rate your alderman!</button>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Survey</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Tell us what you think!</h6>
+                                <p class="card-text">
+                                    Take a survey and rate your alderman!</p>
+                                <a href="./test.html" class="card-link">Click here to know more.</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div data-spy="scroll" data-target="#list" data-offset="0" class="scrollspy"></div>
             </div>
         </div>
     </div>
 
+    <!-- Sticky footer -->
     <footer>
         <p id="copyright">Copyright &copy 4 Women Enterprices 2018</p>
     </footer>
 
+    <!-- jQuery linked -->
     <script src='https://code.jquery.com/jquery-3.3.1.min.js' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
         crossorigin='anonymous'></script>
+    <!-- JS Bootstrap linked -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+    <!-- JS linked -->
     <script src="./assets/javascript/news.js"></script>
 </body>
 
