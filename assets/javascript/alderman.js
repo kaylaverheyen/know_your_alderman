@@ -1,28 +1,4 @@
-//INITIALIZE MAP
-function initMap() {
-    // SET MAP FOCUS - CHICAGO
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
-        center: { lat: 41.881832, lng: -87.623177 }
-    });
-
-    // Create an array of alphabetical characters used to label the markers.
-    var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-    // Add some markers to the map.
-
-    var markers = locations.map(function (location, i) {
-        return new google.maps.Marker({
-            position: location,
-            label: labels[i % labels.length]
-        });
-    });
-
-    // Add a marker clusterer to manage the markers.
-    var markerCluster = new MarkerClusterer(map, markers,
-        { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
-}
-var locations = [
+var wardOffices = [
     { lat: 41.919350, lng: -87.687981 }, //Ward 1
     { lat: 41.907080, lng: -87.667810 },
     { lat: 41.801880, lng: -87.652230 },
@@ -39,7 +15,7 @@ var locations = [
     { lat: 41.801140, lng: -87.691150 },
     { lat: 41.779541, lng: -87.666222 },
     { lat: 41.778648, lng: -87.699959 },
-    { lat: 441.760990, lng: -87.663292 },
+    { lat: 41.760990, lng: -87.663292 },
     { lat: 41.691110, lng: -87.720400 },
     { lat: 41.704460, lng: -87.681840 },
     { lat: 41.765760, lng: -87.605570 }, //Ward 20
@@ -63,7 +39,7 @@ var locations = [
     { lat: 41.949580, lng: -87.806800 },
     { lat: 41.968390, lng: -87.738170 },
     { lat: 41.987620, lng: -87.703330 }, // Ward 40
-    { lat: 41.016670, lng: -87.806940 },
+    { lat: 42.016670, lng: -87.806940 },
     { lat: 41.894530, lng: -87.636670 },
     { lat: 41.928010, lng: -87.648560 },
     { lat: 41.940500, lng: -87.653970 },
@@ -75,4 +51,48 @@ var locations = [
     { lat: 41.997150, lng: -87.728930 } //Ward 50
 
 ];
+
+var map;
+var labels;
+var markers = [];
+
+//INITIALIZE MAP FUNCTION
+function initMap() {
+    // SET MAP FOCUS - CHICAGO
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: { lat: 41.881832, lng: -87.623177 }
+    });
+
+
+    // Create an array of alphabetical characters used to label the markers.
+    for (var i = 1; i < 51; i++) {
+        title = "'Ward ' + i";
+        // Prints a message and the current i value to the console.
+        // console.log(labels);
+
+        // Add some markers to the map.
+        var markers = wardOffices.map(function (location, i) {
+            return new google.maps.Marker({
+                position: location,
+                title: title[i]
+            });
+        });
+        // console.log(markers);
+
+        // Add a marker clusterer to manage the markers.
+        var markerCluster = new MarkerClusterer(map, markers,
+            { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+        markers.on('click', function (event) {
+            console.log("click - marker");
+
+        });
+    }
+    // // // FUNCTION TO POPULATE DATA
+    google.maps.event.addListener(map, 'click', function (event) {
+        console.log("click - page");
+
+    });
+};
+
 
