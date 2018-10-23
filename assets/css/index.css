@@ -30,6 +30,12 @@
 
 .carousel-caption {
     text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+    font-size: 15px;
+    margin: 0;
+}
+
+.carousel-item {
+    padding: -5px;
 }
 
 .container {
