@@ -6,27 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Know Your Alderman - Survey</title>
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-    <link rel=“stylesheet” href=“https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css“> <link
-        rel="stylesheet" href="./assets/css/initial-style.css">
-
-    <style>
-
-    </style>
+    <!-- Linking the header and footer -->
+    <link rel="stylesheet" href="./assets/css/header-footer.css">
+    <!-- Stylesheet linked for the contaier -->
+    <link rel="stylesheet" href="./assets/css/test.css">
+    <!-- Basic Font -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 
-<body>
-    <nav>HEADER: Do you know your alderman?</nav>
+<body class="site">
+    <!-- Header -->
+    <div id="header" class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-11">
+            <div class="row">
+                <div class="col-sm-11 col-md-3">
+                    <div class="row">
+                        <div class="col-sm-3 col-md-3 col3">
+                            <div class="nav-button"></div>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col3">
+                            <div class="nav-button"></div>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col3">
+                            <div class="nav-button"></div>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col3">
+                            <div class="nav-button"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-1 col-md-9"></div>
+            </div>
+            <nav class="navbar navbar-expand-lg row">
+                <a class="navbar-brand col-md-4" href="./index.html">Know Your Alderman</a>
+                <div class="navbar-nav ml-auto col-md-4">
+                    <a class="nav-item nav-link active" href="./index.html">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="./alderman.html">Find</a>
+                    <a class="nav-item nav-link" href="./news.html">News</a>
+                    <a class="nav-item nav-link" href="./test.html">Survey</a>
+                </div>
+            </nav>
+            <div class="row"></div>
+        </div>
+    </div>
+
+    <!-- Container -->
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h2>Rate Your Alderman</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-
+            <!-- Dropdown menu -->
+            <div class="col-md-2">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -34,6 +66,7 @@
                     </button>
                     <br>
                     <div class="dropdown-menu" id="list" aria-labelledby="dropdownMenuButton" style="height: 500px; overflow: auto;">
+
                         <a class="dropdown-item" data-val="Proco Joe Moreno" href="#">1.Proco
                             Joe Moreno</a>
                         <a class="dropdown-item" data-val="Brian Hopkins" href="#">2.Brian Hopkins</a>
@@ -89,33 +122,47 @@
                     <br>
                     <span id="a_name"></span>
                 </div>
-                <br>
-                <div id="aldermanChoice"></div>
-                <br>
-                <div id="questions"></div>
-                <br>
-                <br>
-                <button type="button" class="btn btn-primary">survey submit here</button>
-                <br>
+            </div>
+            <!-- Alderman choice goes here -->
+            <div class="col-md-3">
+                <p id="alderman-choice">{Alderman choice goes here}</p>
+            </div>
+            <!-- Title -->
+            <div class="col-md-7">
                 <hr>
-                <!-- <form id="form">
-                </form> -->
-                <br>
-                <!-- <div class="results"></div> -->
-                <canvas id="pieChart" height="400" width="600" style="border: solid;"></canvas>
-                <br>
-                <input type="text" class="form-control" placeholder="@ your name or alias here">
-                <textarea class="form-control" name="" id="message" cols="10" rows="10" placeholder="write your Alderman review here"></textarea>
-                <button class="btn btn-info">Comment</button>
+                <h2 id="title-test">Rate Your Alderman</h2>
                 <hr>
-                <div id="tweets" class="tweets-section"></div>
-
-
-
             </div>
         </div>
+        <!-- Chart -->
+        <div class="row">
+            <div class="col-md-5">
+                <label for="pieChart">Survey Results:</label>
+                <canvas id="pieChart" height="400" width="600" style="border: solid;"></canvas>
+            </div>
+            <!-- Test -->
+            <div class="col-md-7">
+                <div id="questions"></div>
+                <br><br>
+                <button type="button" class="btn btn-primary">submit survey</button>
+            </div>
+        </div>
+
+        <br>
+        <!-- <div class="results"></div> -->
+        <br>
+        <input type="text" class="form-control" placeholder="@ your name or alias here">
+        <textarea class="form-control" name="" id="message" cols="10" rows="10" placeholder="write your Alderman review here"></textarea>
+        <button class="btn btn-info">Comment</button>
+        <hr>
+        <div id="tweets" class="tweets-section"></div>
     </div>
-    <footer>FOOTER: Copyright 4 Women Enterprices</footer>
+
+    <!-- Sticky footer -->
+    <footer>
+        <p id="copyright">Copyright &copy 4 Women Enterprises 2018</p>
+    </footer>
+
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
