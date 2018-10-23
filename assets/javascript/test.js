@@ -1,15 +1,19 @@
 //alert("Javascript for analytics is linked!")
 
 $(document).ready(function () {
+    var Q1, Q2, Q3 = 0;
     //Bootstrap jQuery function for dropdown functionality:
     $('.dropdown-toggle').dropdown()
 
 });
 //display the value (ie alderman name) selected to the right of the drop down button
 
-$(".dropdown-toggle").on("click", function () {
-    var pickAlderman = $("#list").val();
-    $("#aldermanChoice").append("<span>" + pickAlderman);
+// $(".dropdown-toggle").on("click", function () {
+$(document).on("click", "a", function () {
+    // var pickAlderman = $("#list").val();
+    var pickAlderman = $(this).attr("data-val");
+    $("#a_name").text(pickAlderman);
+    //$("#aldermanChoice").append("<span>" + pickAlderman);
     console.log(pickAlderman);
 });
 
@@ -52,14 +56,14 @@ function displayQuestions() {
             var options = [];
             for (value in currentQ.options) {
                 options.push(
-                    `<label>
+                    `<label style="margin-right:10px;">
                     <br>
-                    <input type="radio" name="text${questionNum}" value="${value}">
-                    ${value} :
+                    <input type="radio" name="text${questionNum}" value="${value}" >
+        
                     ${currentQ.options[value]}
                     
                     
-                  </label> <br>`
+                  </label>`
                 );
             }
             output.push(
@@ -76,7 +80,29 @@ displayQuestions();
 
 //add submit button
 $(".btn-primary").on("click", function () {
-    $(".questions").hide();
+    //$(".questions").hide();
+    Q1 = $("input[name='text0']:checked").val();
+    Q2 = $("input[name='text1']:checked").val();
+    Q3 = $("input[name='text2']:checked").val();
+    console.log(Q1 + " " + Q2 + " " + Q3);
+    $('input[type=radio]').prop('checked', false);
+
+    var chart = document.getElementById("pieChart");
+    console.log(chart);
+    var myPieChart = new Chart(chart, {
+        type: 'pie',
+        data: {
+            labels: ["Job Proficiency", "Community Outreach", "Environmentally Friendly"],
+            datasets: [{
+                backgroundColor: ["#16a085", "#f1c40f", "#e67e22"],
+                data: [Q1, Q2, Q3]
+
+            }],
+        }
+
+    });
+
+    Q1, Q2, Q3 = 0;
     //store options[value] to firebase database 
     //push array of values for the pie chart 
     // var surveySubmit = $()
@@ -128,26 +154,6 @@ $(".btn-info").on("click", function () {
     });
 });
 
-
-
-
-var chart = document.getElementById("pieChart");
-console.log(chart);
-var myPieChart = new Chart(chart, {
-    type: 'pie',
-    data: {
-        labels: ["Job Proficiency", "Community Outreach", "Environmentally Friendly"],
-        datasets: [{
-            backgroundColor: ["#16a085", "#f1c40f", "#e67e22"],
-            data: [0, 1, 3]
-
-        }],
-
-
-
-    }
-
-});
 // database.ref().on("value", function (snapshot) {
 //     //todo: add code to display tweets
 //     var username = snapshot.val().username;
