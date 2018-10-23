@@ -23,7 +23,7 @@ $(document).ready(function () {
         $("#list").addClass("animated fadeInRight");
         $(".scrollspy").addClass("animated fadeInRight");
 
-
+        $("#container-title").hide();
         $("#list").empty();
         $(".scrollspy").empty();
 

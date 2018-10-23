@@ -1,5 +1,3 @@
-//alert("Javascript for analytics is linked!")
-
 $(document).ready(function () {
     //Bootstrap jQuery function for dropdown functionality:
     $('.dropdown-toggle').dropdown()
@@ -12,10 +10,6 @@ $(".dropdown-toggle").on("click", function () {
     $("#aldermanChoice").append("<span>" + pickAlderman);
     console.log(pickAlderman);
 });
-
-
-
-
 
 //Survey Questions
 var questions = [
@@ -37,9 +31,6 @@ var questions = [
 var questionIndex = 0;
 var submitButton = document.getElementById("submit");
 var quizContainer = document.getElementById("questions");
-
-
-
 
 //to display questions via jquery
 function displayQuestions() {

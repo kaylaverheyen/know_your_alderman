@@ -1,27 +1,32 @@
-
-img{
-    height: 150px;
-    width: auto;
-    float: left;
-    margin-right: 10px;
+/* Dropdown menu */
+#btnGroupDrop1 {
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 
-.dropdown-toggle{
+.dropdown-toggle {
     margin-top: 15px;
     padding: 25px;
     box-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 
-.dropdown-item{
+.dropdown-item {
     margin-right: 45px;
+    text-align: center;
 }
-.article-div{
+/* Reapeating element "article" scaling */
+img {
+    height: 150px;
+    width: auto;
+    float: left;
+    margin-right: 10px;
+}
+.article-div {
     margin-bottom: 10px;
     font-family: 'PT Serif Caption', serif;
     display: block;
 }
 
-h2{
+h2 {
     text-align: center;
     font-family: 'PT Serif Caption', serif;
     font-style: italic;
@@ -29,10 +34,18 @@ h2{
     text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 
-#btnGroupDrop1{
-    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+/* Initial display */
+
+#container-title {
+    text-align: center;
+    font-family: 'PT Serif Caption', serif;
+    font-style: italic;
+    font-size: 20px;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
-.links{
-    display: inline;
+.card{
+    width: 17rem;
+    margin-top: 50px;
 }
