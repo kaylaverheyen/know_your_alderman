@@ -19,21 +19,21 @@ $(document).on("click", "a", function () {
 var questions = [
     {
         text: "How would you rate your Alderman's overall job performance?",
-        options: ["Unsatisfactory", "Improvement Needed", "Meets Expectations", "Exceeds Expectations", "Exceptional"],
+        options: ["Unsatisfactory", "Needs Improvment", "Average", "Exceeds Expectations", "Excellent"],
     },
     {
         text: "My Alderman's projects to better my Ward are relevant and important.",
-        options: ["Unsatisfactory", "Improvement Needed", "Meets Expectations", "Exceeds Expectations", "Exceptional"],
+        options: ["Unsatisfactory", "Needs Improvment", "Average", "Exceeds Expectations", "Excellent"],
     },
     {
         text: "My Alderman is environmentally conscious and working to improve our Ward.",
-        options: ["Unsatisfactory", "Improvement Needed", "Meets Expectations", "Exceeds Expectations", "Exceptional"],
+        options: ["Unsatisfactory", "Needs Improvment", "Average", "Exceeds Expectations", "Excellent"],
 
     }
 ];
 
-var questionIndex = 0;
-var submitButton = document.getElementById("submit");
+//var questionIndex = 0;
+//var submitButton = document.getElementById("submit");
 var quizContainer = document.getElementById("questions");
 
 //to display questions via jquery
@@ -47,19 +47,19 @@ function displayQuestions() {
             var options = [];
             for (value in currentQ.options) {
                 options.push(
-                    `<label style="margin-right:10px;">
+                    `<label style="margin-right:35px;">
                     <br>
                     <input type="radio" name="text${questionNum}" value="${value}" >
         
                     ${currentQ.options[value]}
                     
                     
-                  </label>`
+                 <br> </label>`
                 );
             }
             output.push(
-                `<div class="question"> ${currentQ.text} </div>
-                <div class="options"> ${options.join('')} </div>`
+                `<div class="question" style="font-weight: bold; text-shadow: 1px 2px 1px rgba(0,0,0,0.3);"> ${currentQ.text} </div>
+                <div class="options"> ${options.join('')} </div><br>`
             );
         }
     );
@@ -85,18 +85,21 @@ $(".btn-primary").on("click", function () {
         data: {
             labels: ["Job Proficiency", "Community Outreach", "Environmentally Friendly"],
             datasets: [{
-                backgroundColor: ["#16a085", "#f1c40f", "#e67e22"],
+                backgroundColor: ["#e67e22", "#f1c40f", "#16a085"],
                 data: [Q1, Q2, Q3]
 
             }],
+        },
+        options: {
+            title: {
+                display: true,
+                text: "Survey Results"
+            }
         }
 
     });
 
     Q1, Q2, Q3 = 0;
-    //store options[value] to firebase database 
-    //push array of values for the pie chart 
-    // var surveySubmit = $()
 
 });
 
