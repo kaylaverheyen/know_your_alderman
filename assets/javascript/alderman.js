@@ -63,7 +63,7 @@ function initMap() {
     });
 
 
-    // Add some markers to the map.
+    // ADD MARKERS USING LOCATIONS
     var markers = wardOffices.map(function (location, i) {
         var marker = new google.maps.Marker({
             position: location,
@@ -80,16 +80,10 @@ function initMap() {
 
 
 
-    // Add a marker clusterer to manage the markers.
+    // MARKER CLUSTERS
     var markerCluster = new MarkerClusterer(map, markers,
         { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
 
-
-    // // // FUNCTION TO POPULATE DATA
-    google.maps.event.addListener(map, 'click', function (event) {
-        console.log("click - page");
-
-    });
 };
 
 // //INFO WINDOW
