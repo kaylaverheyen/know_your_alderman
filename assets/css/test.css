@@ -3,7 +3,8 @@
     text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 
-.dropdown-toggle {
+#dropdownMenuButton {
+    text-align: center;
     margin-top: 15px;
     padding: 25px;
     box-shadow: 2px 4px 3px rgba(0,0,0,0.3);
@@ -16,9 +17,14 @@
     font-size: 35px;
     text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
+#review{
+    font-weight: bold;
+}
 
-#alderman-choice {
-    text-align: center;
-    padding-top: 40px;
-    padding-left: 20px;
+#a_name {
+    font-size: 25px;
+    font-style: italic;
+}
+#questions {
+    text-align: center; 
 }

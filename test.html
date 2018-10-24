@@ -53,12 +53,19 @@
             <div class="row"></div>
         </div>
     </div>
-
     <!-- Container -->
     <div class="container">
         <div class="row">
-            <!-- Dropdown menu -->
-            <div class="col-md-2">
+            <!-- Title -->
+            <div class="col-md-12">
+                <hr>
+                <h2 id="title-test">Rate Your Alderman</h2>
+                <hr>
+            </div>
+        </div>
+        <!-- Dropdown menu -->
+        <div class="row justify-content-start">
+            <div class="col-md-4">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -119,44 +126,51 @@
                         <a class="dropdown-item" data-val="Joe Moore" href="#">49.Joe Moore</a>
                         <a class="dropdown-item" data-val="Debra Silverstein" href="#">50.Debra Silverstein</a>
                     </div>
-                    <br>
-                    <span id="a_name"></span>
+
                 </div>
             </div>
             <!-- Alderman choice goes here -->
-            <div class="col-md-3">
-                <p id="alderman-choice">{Alderman choice goes here}</p>
+            <div class="col-md-4">
+                <br>
+                <p id="a_name"></p>
             </div>
-            <!-- Title -->
-            <div class="col-md-7">
-                <hr>
-                <h2 id="title-test">Rate Your Alderman</h2>
-                <hr>
-            </div>
+            <div class="col-md-4"></div>
         </div>
-        <!-- Chart -->
+        <!-- test -->
         <div class="row">
-            <div class="col-md-5">
-                <label for="pieChart">Survey Results:</label>
-                <canvas id="pieChart" height="400" width="600" style="border: solid;"></canvas>
-            </div>
-            <!-- Test -->
-            <div class="col-md-7">
+            <div class="col-md-12">
                 <div id="questions"></div>
-                <br><br>
-                <button type="button" class="btn btn-primary">submit survey</button>
+                <hr>
             </div>
         </div>
+        <!-- ideas -->
+        <div class="row">
+            <div class="col-md-6">
+                <p id="review">Review your Alderman here: </p>
+                <input type="text" class="form-control" placeholder="@ your name or alias here">
+                <textarea class="form-control" name="" id="message" cols="5" rows="5" placeholder="write your Alderman review here"></textarea>
+                <button class="btn btn-info">Comment</button>
+                <button type="button" id="btn_submit" class="btn btn-primary" style="align-content: center">Submit
+                    Survey</button>
+                <hr>
+                <div id="tweets" class="tweets-section"></div>
+            </div>
 
-        <br>
-        <!-- <div class="results"></div> -->
-        <br>
-        <input type="text" class="form-control" placeholder="@ your name or alias here">
-        <textarea class="form-control" name="" id="message" cols="10" rows="10" placeholder="write your Alderman review here"></textarea>
-        <button class="btn btn-info">Comment</button>
-        <hr>
-        <div id="tweets" class="tweets-section"></div>
+            <!-- <label for="pieChart">Survey Results:</label> -->
+            <div class="col-md-6">
+                <canvas id="pieChart" height="400" width="500"></canvas>
+            </div>
+        </div>
     </div>
+    <br>
+    <!-- <div class="results"></div> -->
+    <!-- <br>
+    <input type="text" class="form-control" placeholder="@ your name or alias here">
+    <textarea class="form-control" name="" id="message" cols="10" rows="10" placeholder="write your Alderman review here"></textarea>
+    <button class="btn btn-info">Comment</button>
+    <hr>
+    <div id="tweets" class="tweets-section"></div>
+    </div> -->
 
     <!-- Sticky footer -->
     <footer>
