@@ -31,5 +31,9 @@ $(document).ready(function () {
     });
 });
 
+$(this).on("click", function () {
+    $(".instructions").hide();
+})
+
 
 
