@@ -1,78 +1,139 @@
-//INITIALIZE MAP
+var aldermanInfo = [];
+var map;
+var labels;
+var markers = [];
+
+function displayAldermanInfo(alderman) {
+
+
+    var info = $("<div>");
+    info.addClass("info");
+
+    var ward = $("<p>");
+    ward.text("ward: " + alderman.ward);
+
+    var name = $("<p>");
+    name.text("Alderman Name: " + alderman.alderman);
+
+    var site = $("<p>");
+    site.text("Website: " + alderman.website);
+
+    var email = $("<p>");
+    email.text("Email Address: " + alderman.email);
+
+    var chAddress = $("<p>");
+    chAddress.text("City Hall Address: " + alderman.city_hall_address);
+
+    var dAddress = $("<p>");
+    dAddress.text("Distric Office Address: " + alderman.address);
+
+    var cityPhone = $("<p>");
+    cityPhone.text("City Hall Phone: " + alderman.city_hall_phone);
+
+    var wardPhone = $("<p>");
+    wardPhone.text("Disctrict Office Phone: " + alderman.ward_phone);
+
+    info.append(ward, alderman, site, email, chAddress, dAddress, cityPhone, wardPhone);
+    $("#content-info").append(info);
+}
+
+$.ajax({
+    url: "https://data.cityofchicago.org/resource/7ia9-ayc2.json",
+    type: "GET",
+    data: {
+        "$limit": 5000,
+        "$$app_token": "K7i1lV0vqt5nRSZfFySmhy84t"
+    }
+}).done(function (data) {
+    console.log("data is loaded");
+    aldermanInfo = data;
+
+
+});
+
+
+//INITIALIZE MAP FUNCTION
 function initMap() {
     // SET MAP FOCUS - CHICAGO
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 10,
         center: { lat: 41.881832, lng: -87.623177 }
     });
 
-    // Create an array of alphabetical characters used to label the markers.
-    var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
     // Add some markers to the map.
-
-    var markers = locations.map(function (location, i) {
-        return new google.maps.Marker({
+    var markers = wardOffices.map(function (location, i) {
+        var marker = new google.maps.Marker({
             position: location,
-            label: labels[i % labels.length]
+            title: "" + (i + 1)
         });
+        marker.addListener("click", function () {
+            displayAldermanInfo(aldermanInfo[i]);
+            // console.log(this.title);
+
+        });
+        return marker;
     });
+    // console.log(markers);
+
+
 
     // Add a marker clusterer to manage the markers.
     var markerCluster = new MarkerClusterer(map, markers,
         { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
-}
-var locations = [
-    { lat: 41.919350, lng: -87.687981 }, //Ward 1
-    { lat: 41.907080, lng: -87.667810 },
-    { lat: 41.801880, lng: -87.652230 },
-    { lat: 41.831030, lng: -87.831030 },
-    { lat: 41.764340, lng: -87.681670 },
-    { lat: 41.748880, lng: -87.614410 },
-    { lat: 41.722100, lng: -87.568160 },
-    { lat: 41.765760, lng: -87.605570 },
-    { lat: 41.704460, lng: -87.535650 },
-    { lat: 41.690100, lng: -87.621600 }, // Ward 10
-    { lat: 41.827490, lng: -87.645880 },
-    { lat: 41.830900, lng: -87.677230 },
-    { lat: 41.774559, lng: -87.722832 },
-    { lat: 41.801140, lng: -87.691150 },
-    { lat: 41.779541, lng: -87.666222 },
-    { lat: 41.778648, lng: -87.699959 },
-    { lat: 441.760990, lng: -87.663292 },
-    { lat: 41.691110, lng: -87.720400 },
-    { lat: 41.704460, lng: -87.681840 },
-    { lat: 41.765760, lng: -87.605570 }, //Ward 20
-    { lat: 41.729860, lng: -87.662380 },
-    { lat: 41.845960, lng: -87.712640 },
-    { lat: 41.793160, lng: -87.776380 },
-    { lat: 41.734780, lng: -87.726280 },
-    { lat: 41.856910, lng: -87.662160 },
-    { lat: 41.902740, lng: -87.690000 },
-    { lat: 41.896830, lng: -87.628400 },
-    { lat: 41.859570, lng: -87.691010 },
-    { lat: 41.909470, lng: -87.782840 },
-    { lat: 41.945480, lng: -87.733750 },// Ward 30
-    { lat: 41.945480, lng: -87.733750 },
-    { lat: 41.930050, lng: -87.675080 },
-    { lat: 41.953810, lng: -87.703300 },
-    { lat: 41.692150, lng: -87.635450 },
-    { lat: 41.895550, lng: -87.707800 },
-    { lat: 41.932110, lng: -87.698820 },
-    { lat: 41.895220, lng: -87.749240 },
-    { lat: 41.949580, lng: -87.806800 },
-    { lat: 41.968390, lng: -87.738170 },
-    { lat: 41.987620, lng: -87.703330 }, // Ward 40
-    { lat: 41.016670, lng: -87.806940 },
-    { lat: 41.894530, lng: -87.636670 },
-    { lat: 41.928010, lng: -87.648560 },
-    { lat: 41.940500, lng: -87.653970 },
-    { lat: 41.966700, lng: -87.760170 },
-    { lat: 41.964401, lng: -87.656822 },
-    { lat: 41.958960, lng: -87.681820 },
-    { lat: 41.964400, lng: -87.656820 },
-    { lat: 41.896110, lng: -87.664910 },
-    { lat: 41.997150, lng: -87.728930 } //Ward 50
 
-];
 
+    // // // FUNCTION TO POPULATE DATA
+    google.maps.event.addListener(map, 'click', function (event) {
+        console.log("click - page");
+
+    });
+};
+
+
+
+
+// var content = 
+
+// //INFO WINDOW
+// var infowindow = new google.maps.InfoWindow({
+//     content: content
+// });
+
+
+// infoBubble = new InfoBubble({
+//     maxWidth: 300
+// });
+
+// infoBubble2 = new InfoBubble({
+//     map: map,
+//     content: '<div class="phoneytext">Some label</div>',
+//     position: new google.maps.LatLng(wardOffices),
+//     shadowStyle: 1,
+//     padding: 0,
+//     backgroundColor: 'rgb(57,57,57)',
+//     borderRadius: 4,
+//     arrowSize: 10,
+//     borderWidth: 1,
+//     borderColor: '#2c2c2c',
+//     disableAutoPan: true,
+//     hideCloseButton: true,
+//     arrowPosition: 30,
+//     backgroundClassName: 'phoney',
+//     arrowStyle: 2
+// });
+
+// infoBubble.open(map, marker);
+// infoBubble2.open();
+
+// var div = document.createElement('DIV');
+// div.innerHTML = 'Hello';
+
+// infoBubble.addTab('A Tab', div);
+// infoBubble.addTab('Uluru', contentString);
+
+// google.maps.event.addListener(marker, 'click', function () {
+//     if (!infoBubble.isOpen()) {
+//         infoBubble.open(map, marker);
+//     }
+// });
