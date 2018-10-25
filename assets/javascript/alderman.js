@@ -3,42 +3,41 @@ var map;
 var labels;
 var markers = [];
 
+// FUNCTIN TO DYNAMICALLY DISPLAY ALDERMAN INFORMATION ON MARKER CLICKS
 function displayAldermanInfo(alderman) {
 
-    $("#content-info").empty();
+    // $("#content-info").empty();
 
-    var info = $("<div>");
-    info.addClass("info");
+    //CAPTURE DATA IN VARIABLES
 
-    var ward = $("<p>");
-    ward.text("ward: " + alderman.ward);
+    var ward = $("#ward-info");
+    ward.text(alderman.ward);
 
-    var name = $("<p>");
-    name.text("Alderman Name: " + alderman.alderman);
+    var name = $("#name-info");
+    name.text(alderman.alderman);
 
-    var site = $("<p>");
+    var site = $("#site-info");
     var websiteText = alderman.website ? alderman.website : "Does not have a website";
-    site.text("Website: " + websiteText);
+    site.text(websiteText);
 
-    var email = $("<p>");
-    email.text("Email Address: " + alderman.email);
+    var email = $("#email-info");
+    email.text(alderman.email);
 
-    var chAddress = $("<p>");
-    chAddress.text("City Hall Address: " + alderman.city_hall_address);
+    var chAddress = $("#ch-address");
+    chAddress.text(alderman.city_hall_address);
 
-    var dAddress = $("<p>");
-    dAddress.text("Distric Office Address: " + alderman.address);
+    var dAddress = $("#d-address");
+    dAddress.text(alderman.address);
 
-    var cityPhone = $("<p>");
-    cityPhone.text("City Hall Phone: " + alderman.city_hall_phone);
+    var cityPhone = $("#ch-phone");
+    cityPhone.text("City Hall Phone:  " + alderman.city_hall_phone);
 
-    var wardPhone = $("<p>");
-    wardPhone.text("Disctrict Office Phone: " + alderman.ward_phone);
+    var wardPhone = $("#d-phone");
+    wardPhone.text("Disctrict Office Phone:  " + alderman.ward_phone);
 
-    info.append(ward, name, site, email, chAddress, dAddress, cityPhone, wardPhone);
-    $("#content-info").append(info);
 }
 
+// AJAX CALL TO CITY OF CHICAGO WARD API + TOKEN
 $.ajax({
     url: "https://data.cityofchicago.org/resource/7ia9-ayc2.json",
     type: "GET",
@@ -47,14 +46,13 @@ $.ajax({
         "$$app_token": "K7i1lV0vqt5nRSZfFySmhy84t"
     }
 }).done(function (data) {
-    console.log("data is loaded");
     aldermanInfo = data;
-
+    console.log(data);
 
 });
 
 
-//INITIALIZE MAP FUNCTION
+//INITIALIZE MAP FUNCTION USING THE GOOGLE API + KEY
 function initMap() {
     // SET MAP FOCUS - CHICAGO
     map = new google.maps.Map(document.getElementById('map'), {
@@ -63,7 +61,7 @@ function initMap() {
     });
 
 
-    // ADD MARKERS USING LOCATIONS
+    // ADD MARKERS USING LOCATIONS.JS
     var markers = wardOffices.map(function (location, i) {
         var marker = new google.maps.Marker({
             position: location,
@@ -86,7 +84,7 @@ function initMap() {
 
 };
 
-// //INFO WINDOW
+// FUNCTION TO CREATE INFO WINDOW WITHIN MAP
 function makeInfoWindow(alderman) {
     var contentString = alderman.ward + " : " + alderman.alderman;
     var infowindow = new google.maps.InfoWindow({
@@ -95,13 +93,5 @@ function makeInfoWindow(alderman) {
     return infowindow;
 }
 
-var marker = new google.maps.Marker({
-    position: uluru,
-    map: map,
-    title: 'Uluru (Ayers Rock)'
-});
-marker.addListener('click', function () {
-    infowindow.open(map, marker);
-});
 
 

@@ -58,15 +58,69 @@
     <!-- CONTENT CONTAINER-->
     <div class="container">
         <div class="row">
-            <div class="col-md-6" id="content-info">Content goes here?</div>
-            <div class="col-md-6">
 
-                <!-- MAP -->
+            <!-- MAP -->
+            <div class="col-md-7">
                 <label>
-                    <h3>City of Chicago</h3>
+                    <h4>Select a Location from the Map to Learn More!</h3>
                 </label>
-                <!--The div element for the map -->
                 <div id="map"></div>
+            </div>
+
+            <!-- CONTENT -->
+            <div class="col-md-5">
+                <label>
+                    <h4 class="text-center">Alderman Information!</h4>
+                </label>
+                <div id="content-info">
+                    <h6>WARD: </h6>
+                    <div class="info" id="ward-info"></div>
+
+                    <h6>REPRESENTATIVE:</h6>
+                    <div class="info" id="name-info"></div>
+
+                    <h6>WEBSITE LINK:</h6>
+                    <div class="info" id="site-info"></div>
+
+                    <h6>EMAIL ADDRESS:</h6>
+                    <div class="info" id="email-info"></div>
+
+                    <h6>CITY HALL ADDRESS:</h6>
+                    <div class="info" id="ch-address"></div>
+
+                    <h6>DISTRICT OFFICE ADDRESS"</h6>
+                    <div class="info" id="d-address"></div>
+
+                    <h6>CITY HALL PHONE NUMBER:</h6>
+                    <div class="info" id="ch-phone"></div>
+
+                    <h6>DISTRICT OFFICE PHONE NUMBER:</h6>
+                    <div class="info" id="d-phone"></div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5"></div>
+            <div class="col-md-3 text-center">
+                <div class="row">
+                    <h5>MORE RESOURCES:</h5>
+                </div>
+                <div class="row text-center">
+                    <a href="https://www.cityofchicago.org/city/en/depts/mayor/iframe/lookup_ward_and_alderman.html"
+                        target="_blank">Lookup
+                        Your Alderman</a></div>
+
+
+                <div class="row">
+                    <a href="https://app.chicagoelections.com/documents/general/City%20Wide%20Ward%20Map%202012.pdf"
+                        target="_blank">Ward
+                        Map</a>
+                </div>
+                <div class="col-md-4">
+
+                </div>
             </div>
         </div>
     </div>
@@ -86,7 +140,7 @@
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 
 
-    <!-- GOOGLE MAPS -->
+    <!-- GOOGLE MAPS CALL AND MAP CREATION FUNCTION CALLED-->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3EHfZaWhjA4ffDabRt-4bIXRHxsMd-ow&callback=initMap">
     </script>
 </body>
