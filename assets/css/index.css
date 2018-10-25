@@ -6,8 +6,6 @@
     height: 350px;
     width: auto;
     object-fit: cover;
-    /* margin:auto;
-    display:block; */
 }
 
 .carousel-control-prev-icon,
@@ -63,7 +61,6 @@ h1 {
 #education-div {
     text-align: center;
     float: none;
-    
 }
 
 div.card {
@@ -74,9 +71,16 @@ div.card {
     box-shadow: 10px 10px 5px #aaaaaa;
 }
 
+div.rotate_right {
+    float: left;
+    -ms-transform: rotate(7deg); /* IE 9 */
+    -webkit-transform: rotate(7deg); /* Safari */
+    transform: rotate(7deg);
+}
 
-/* #stars {
-    justify-content: center;
-    float: none;
-    margin: 0 auto;
-} */
+div.rotate_left {
+    float: left;
+    -ms-transform: rotate(-8deg); /* IE 9 */
+    -webkit-transform: rotate(-8deg); /* Safari */
+    transform: rotate(-8deg);
+}
